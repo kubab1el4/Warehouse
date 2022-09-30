@@ -1,0 +1,168 @@
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.header{
+    width: 100%;
+    position:static;
+    top:0px;
+    height:9.9%;
+    padding:0;
+}
+.main{
+    width: 100%;
+
+    position:static;
+    height:82vh;
+
+}
+body{
+        background: linear-gradient(-45deg, #2174A0, #0E4B6C, #23a6d5, #303B9A);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.footer{
+    width: 100%;
+    height:5vh;
+
+}
+.footer hr{
+    margin-top:26px !important;
+    margin-bottom:6px !important;
+}
+.first{
+    background-color: azure;
+    width:94%;
+    margin-left:3%;
+    padding-top:35px;
+    padding-bottom:83px;
+    overflow:auto;
+    float:left;
+    height:85%;
+}
+.second{
+    background-color: azure;
+    width:20%;
+    padding-right:5vh;
+    float:right;
+    height:50%;
+}
+h1{
+    position:relative;
+    top:30%;
+    margin-left:3%;
+}
+hr{
+    margin-left:3%;
+    color:black;
+    width:94%;
+    top:10%;
+    border:1px solid black;
+
+}
+.form_buttons{
+    position:relative;
+    float:right;
+    height:10%;
+    bottom:20%;
+    margin-right:3%
+
+}
+.form_buttons input{
+    margin-right:10px;
+}
+h3{
+    margin:0px;
+    position:relative;
+    top:20%;
+    text-align:center;
+
+}
+.product{
+    display:grid;
+    width:15%;
+    height:15%;
+    background-color:white;
+    float:left;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    position:relative;
+    
+    
+}
+
+.product p{
+    font-weight:bold;
+    position:absolute;
+    left:15%;
+    top:7px;
+    font-family:Verdana;
+    font-size:9pt;
+}
+.checker{
+display:none;
+
+    width:20%;
+    float:right;
+    line-height: 80%;
+    font-family:Verdana;
+    font-size:10px;
+    
+}
+
+.form_window .checker{
+    float:right;
+    width:20%;
+
+    }
+.delete-checkbox{
+    float:left;
+    width:15px;
+    height:15px;
+    margin-left:5%;
+    margin-top:5%;
+}
+#product_form input{
+    background: #f2f2f2;
+    position:absolute;
+    border-radius: 3px;
+}
+#product_form label{
+        margin-top:0px;
+        margin-bottom:40px;
+        margin-left:20px;
+        display:inline-block;
+        width:100px;
+    }
+
+.form_window{
+    background-color:azure;
+    margin-top:0px;
+    margin-left:20px;
+    display: inline-block;
+    width: 98%;
+    height:40%;
+}
+.form_window > label {
+    margin-left:0px !important;
+}
+form{
+    display: initial;
+    margin-top: 0px;
+    margin-block-end: 0px;
+}
+

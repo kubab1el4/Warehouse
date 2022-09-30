@@ -1,0 +1,9 @@
+
+php_value display_errors On
+php_value mbstring.http_input auto
+php_value date.timezone America/New_York
+ enable basic rewriting
+RewriteEngine on
+Redirect /add-product /add-product.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
