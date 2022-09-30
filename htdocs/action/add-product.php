@@ -11,4 +11,5 @@ $database->getData();
 $database->addData($database->data);
 
 $database->dbDisconnect();
-header('Location: ../index.php');
+if($_SESSION["SKU"]!="wrong"){
+header('Location: ../index.php');}
