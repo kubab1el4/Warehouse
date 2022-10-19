@@ -1,5 +1,5 @@
 <?php
-
+namespace projekt\classes;
 class Dbconfig
 {
     protected $serverName;
@@ -9,10 +9,10 @@ class Dbconfig
 
     public function __construct()
     {
-        $this -> serverName = 'sql112.epizy.com';
-        $this -> userName = 'epiz_32693982';
-        $this -> passCode = 'CUAUEkX1j8b5z';
-        $this -> dbName = 'epiz_32693982_productbase';
+        $this -> serverName = 'localhost';
+        $this -> userName = 'root';
+        $this -> passCode = '';
+        $this -> dbName = 'productbase';
     }
     public function changeDatabase($server, $user, $pass, $db)
     {

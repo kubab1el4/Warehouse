@@ -1,6 +1,6 @@
 <?php
-
 declare(strict_types=1);
+namespace projekt\classes;
 include_once 'autoloader.php';
 abstract class Product extends Dbhandler
 {
@@ -9,7 +9,8 @@ abstract class Product extends Dbhandler
 
     public function createDisplayString($row)
     {
-        $this->string=('<div class="product"><input class ="delete-checkbox" type="checkbox" id="product" required name="product'.$row['SKU'].'" value="'.$row['SKU'].'"><p>'.$row['SKU'].'<br>'.$row['Name'].'<br>'.$row['Price'].'</p></div>');
+        include("templates/html_templates.php");
+        $this->string=$product_string;
         return $this->string;
     }
 }

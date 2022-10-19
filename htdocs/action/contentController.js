@@ -31,9 +31,7 @@ $(window).on('load', function() {
     if($("#SKU").is(":invalid")){
     $('#skucheck').css("display","block");
     $('#skucheck').text("**Please, fill in the SKU.");
-    let regex = /[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]\d\d\d/i;
-    var bla=$("#SKU").val();
-    if(!regex.test(bla)&&bla.length!=0){$('#skucheck').text("**Please, enter SKU in the right format, [AAAAAAA000], where AAAAAAA - Product group identificator, 111-Unique product code")}
+    
   }
     else{ $('#skucheck').css("display","none");};
 

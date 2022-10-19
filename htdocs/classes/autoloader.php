@@ -1,15 +1,18 @@
 <?php
-
-spl_autoload_register('myautoLoader');
-function myautoLoader($classname)
+namespace Projekt\Class;
+spl_autoload_register('Projekt\Class\myautoLoader');
+function myautoLoader($className)
 {
     $url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     if (strpos($url, 'action')!==false) {
-        $path="../classes/";
+        $path="../";
+        
     } else {
-        $path="classes/";
+        $path="";
     }
     $extension=".php";
-    $fullpath=$path . $classname . $extension;
-    include_once $fullpath;
+    $fullpath=$path . $className . $extension;
+    $fullpaths=str_replace("\\", "/", $fullpath);
+    $fullpathf=str_replace("projekt/", "", $fullpaths);
+    include_once $fullpathf;
 }

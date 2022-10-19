@@ -1,5 +1,5 @@
 <?php
-
+namespace projekt\classes;
 class Dbhandler extends Dbconfig
 {
     protected $connectionString;
