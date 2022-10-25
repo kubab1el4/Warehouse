@@ -1,5 +1,7 @@
 <?php
+
 namespace projekt\classes;
+
 class Dbhandler extends Dbconfig
 {
     protected $connectionString;
@@ -111,9 +113,10 @@ class Dbhandler extends Dbconfig
     }
     public function checkSKU()
     {
-        if (isset($_SESSION["SKU"])) {
-            if ($_SESSION["SKU"]=="wrong") {
-                echo "<script type='text/javascript'>$('#skucheck').css('display','block');$('#skucheck').text('**Duplicate SKU has been entered, please re-enter the data with a new SKU')</script>";
+        if (isset($_SESSION["SKU"])&&$_SESSION["SKU"]=="wrong") {
+            {
+                echo "<script type='text/javascript'>$('#skucheck').css('display','block');$('#skucheck')
+                .text('**Duplicate SKU has been entered, please re-enter the data with a new SKU')</script>";
                 $_SESSION["SKU"]="";
             }
         }

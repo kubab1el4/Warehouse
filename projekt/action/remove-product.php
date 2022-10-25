@@ -1,7 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
 namespace projekt\action;
-include '../classes/autoloader.php';
+
+include_once '../classes/autoloader.php';
 $database=new \projekt\classes\Dbhandler();
 $database->mySql();
 $database->dbConnect();

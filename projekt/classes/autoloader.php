@@ -1,12 +1,13 @@
 <?php
-namespace Projekt\Class;
-spl_autoload_register('Projekt\Class\myautoLoader');
+
+namespace projekt\classes;
+
+spl_autoload_register('projekt\classes\myautoLoader');
 function myautoLoader($className)
 {
     $url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     if (strpos($url, 'action')!==false) {
         $path="../";
-        
     } else {
         $path="";
     }

@@ -1,5 +1,7 @@
 <?php
+
 namespace projekt\classes;
+
 class Dbconfig
 {
     protected $serverName;

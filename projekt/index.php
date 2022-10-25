@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
-include 'classes/autoloader.php';
+include_once 'classes/autoloader.php';
 ?>
-<?php $title = 'Product Page'; include("top.php");?>
+<?php $title = 'Product Page';
+include_once("templates/top.php");?>
     <form id="product_form" method="POST">
         <div class="header">
             <h1>Product List</h1>
@@ -31,4 +32,5 @@ $database->dbDisconnect();
              
 </div>
  </div>
- <?php include("bottom.php");?>
+ <?php include_once("templates/bottom.php");?>
+ 
