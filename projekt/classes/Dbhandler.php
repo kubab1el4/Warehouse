@@ -101,24 +101,17 @@ class Dbhandler extends Dbconfig
         }
         return $array;
     }
-    public function validateSKU()
+    public function getSKUArray()
     {
-        $table=$this->getColumn("SKU");
-        $input=$_POST["SKU"];
-        session_start();
-        if (in_array($input, $table)) {
-            header('Location: ../add-product.php');
-            $_SESSION["SKU"]="wrong";
-        }
+        return $this->getColumn("SKU");
     }
-    public function checkSKU()
+    public function createSKUPattern($array)
     {
-        if (isset($_SESSION["SKU"])&&$_SESSION["SKU"]=="wrong") {
-            {
-                echo "<script type='text/javascript'>$('#skucheck').css('display','block');$('#skucheck')
-                .text('**Duplicate SKU has been entered, please re-enter the data with a new SKU')</script>";
-                $_SESSION["SKU"]="";
-            }
+        $pattern="";
+        foreach ($array as $key) {
+            $pattern.="(^(?!.*\b".$key."\b).*)";
         }
+        $pattern.=".*$";
+        return $pattern;
     }
 }

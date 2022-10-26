@@ -28,11 +28,13 @@ $(window).on('load', function() {
 });
   $('button[formmethod="post"]').click(function(){
     let regex2 = /^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$/g;
+    var pattern = $('#SKU').pattern;
+    let regex = new RegExp("/${pattern}/gm");
     if($("#SKU").is(":invalid")){
     $('#skucheck').css("display","block");
     $('#skucheck').text("**Please, fill in the SKU.");
-    
-  }
+    var bla=$("#SKU").val();
+    if(!regex.test(bla)&&bla.length!=0){$('#skucheck').text("**This SKU is already in the database, please input another SKU.")}}
     else{ $('#skucheck').css("display","none");};
 
     if($("#Name").is(":invalid")){

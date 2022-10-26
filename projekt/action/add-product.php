@@ -9,7 +9,6 @@ $database=new \projekt\classes\Dbhandler();
 $database->mySql();
 $database->dbConnect();
 $database->setTable('products');
-$database->validateSKU();
 $database->getData();
 $database->addData($database->data);
 
