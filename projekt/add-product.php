@@ -26,22 +26,20 @@ include_once("templates/top.php");?>
             <label for="SKU">SKU</label>
             <input type="text" id="SKU" oninput="this.value = this.value.toUpperCase()" required name="SKU"
             pattern="<?php print $database->createSKUPattern($database->getSKUArray()); ?>">
-            <div class="checker" id="skucheck" style="color: red;">**Please, fill in the SKU.</div><br>
+            <div class="checker" id="skucheck" style="color: red;"></div><br>
             <label for="Name">Name</label>
             <input type="text" id="Name" required name="Name">
-            <div class="checker" id="namecheck" style="color: red;">**Please, fill in the name.</div><br>
+            <div class="checker" id="namecheck" style="color: red;"></div><br>
             <label for="Price">Price ($)</label>
             <input type="text" id="Price" pattern="^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$" required name="Price">
-            <div class="checker" id="pricecheck" style="color: red;">**Please, fill in the price.</div><br>
+            <div class="checker" id="pricecheck" style="color: red;"></div><br>
             <label for="Type Switcher">Type Switcher</label>
             <select required id="productType">
-                <div class="checker" id="productcheck" style="color: red;">
-                    **Please, choose the product type.</div>
                 <option disabled selected value></option>
                 <option value="DVD">DVD</option>
                 <option value="Book">Book</option>
                 <option value="Furniture">Furniture</option>
-            </select><br>
+            </select><div class="checker" id="productcheck" style="color: red;"></div><br>
 
 
             <div class="form_window" id="form_window"></div>
