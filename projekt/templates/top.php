@@ -1,5 +1,4 @@
 <html lang=en>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-Edge">
@@ -9,7 +8,5 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="action/contentController.js" type="text/javascript"></script>
-
 </head>
-
 <body>

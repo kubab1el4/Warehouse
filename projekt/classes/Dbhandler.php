@@ -53,7 +53,7 @@ class Dbhandler extends Dbconfig
                 echo $string;
             }
         } else {
-            echo "<p style='margin-left:5%; font-weight:bold'>0 results</p>";
+            echo "0 results";
         }
     }
 
