@@ -1,11 +1,14 @@
 $(window).on('load', function() {
+  function htmlString(val){
+  return "<label for='"+val+"'>"+val+"(MB)</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$'id='"+val+"' required name='"+val+"'><div class='checker' id='"+val.toLowerCase()+"check' style='color: red;'></div><br>";
+  }
   const floatingPoint="**Please, enter data of the right type (Number/ Floating Point)";
   $('#productType').change(function(){
-    if($(this).val()==="DVD"){$('#form_window').html("<label for='Size'>Size(MB)</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$'  id='Size'  required name='Size'><div class='checker' id='sizecheck' style='color: red;'></div><br>");
+    if($(this).val()==="DVD"){$('#form_window').html(htmlString("Size"));
     $('#form_window').prop("title","Please provide the size of the DVD in MB")}
-    else if($(this).val()==="Furniture"){$('#form_window').html("<label for='Height'>Height(CM)</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$'  id='Height'  required name='Height'><div class='checker' id='heightcheck' style='color: red;'></div><br><label for='Width'>Width(CM)</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$'  id='Width'  required name='Width'><div class='checker' id='widthcheck' style='color: red;'></div><br><label for='Length'>Length(CM)</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$'  id='Length'  required name='Length'><div class='checker' id='lengthcheck' style='color: red;'></div><br>");
+    else if($(this).val()==="Furniture"){$('#form_window').html(htmlString("Height")+""+htmlString("Width")+""+htmlString("Length"));
     $('#form_window').prop("title","Please provide dimensions in HxWxL format");}
-    else if($(this).val()==="Book"){$('#form_window').html("<label for='Weight'>Weight(KG)</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$' id='Weight'  required name='Weight'><div class='checker' id='weightcheck' style='color: red;'></div><br>");
+    else if($(this).val()==="Book"){$('#form_window').html(htmlString("Height"));
     $('#form_window').prop("title","Please provide the weight of the book in KG")}
     else {$('#form_window').text("");}
   });
@@ -27,9 +30,22 @@ $(window).on('load', function() {
     }
 });
   $('button[formmethod="post"]').click(function(){
+    function showNameMessage (val){if($("#"+val).is(":invalid")){
+      $('#'+val.toLowerCase()+'check').css("display","block");
+      $('#'+val.toLowerCase()+'check').text("**Please, fill in the "+val+".");}
+      else{ $('#'+val.toLowerCase()+'check').css("display","none");}}
+
+      function showNumberMessage (val){if($("#"+val).is(":invalid")){
+        $('#'+val.toLowerCase()+'check').css("display","block");
+        $('#'+val.toLowerCase()+'check').text("**Please, fill in the "+val+".");
+        let bla1=$("#"+val).val();
+    if(!regex2.test(bla1)&&bla1.length!=0){$('#'+val.toLowerCase()+'check').text(floatingPoint)}}
+        else{ $('#'+val.toLowerCase()+'check').css("display","none");}}
+
     let regex2 = /^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$/;
     let pattern = $('#SKU').pattern;
     let regex = new RegExp("/${pattern}/gm");
+    
     if($("#SKU").is(":invalid")){
     $('#skucheck').css("display","block");
     $('#skucheck').text("**Please, fill in the SKU.");
@@ -37,57 +53,24 @@ $(window).on('load', function() {
     if(!regex.test(bla)&&bla.length!=0){$('#skucheck').text("**This SKU is already in the database, please input another SKU.")}}
     else{ $('#skucheck').css("display","none");};
 
-    if($("#Name").is(":invalid")){
-    $('#namecheck').css("display","block");
-    $('#namecheck').text("**Please, fill in the Name.");}
-    else{ $('#namecheck').css("display","none");};
+    showNameMessage("Name");
 
-    if($("#Price").is(":invalid")){
-    $('#pricecheck').css("display","block");
-    $('#pricecheck').text("**Please, fill in the Price.");
-    let bla1=$("#Price").val();
-    if(!regex2.test(bla1)&&bla1.length!=0){$('#pricecheck').text(floatingPoint)}}
-    else{ $('#pricecheck').css("display","none");};
+    showNumberMessage("Price")
 
     if($("#productType option:selected").text()==''){
     $('#productcheck').css("display","block");
     $('#productcheck').text("**Please, fill in the Product type.");}
-    else{ $('#productcheck').css("display","none");};
+    else{ $('#productcheck').css("display","none");}
 
-    if($("#Size").is(":invalid")){
-    $('#sizecheck').css("display","block");
-    $('#sizecheck').text("**Please, fill in the Size.");
-    let bla2=$("#Size").val();
-    if(!regex2.test(bla2)&&bla2.length!=0){$('#sizecheck').text(floatingPoint)}}
-    else{ $('#sizecheck').css("display","none");};
+    showNumberMessage("Size")
 
-    if($("#Weight").is(":invalid")){
-    $('#weightcheck').css("display","block");
-    $('#weightcheck').text("**Please, fill in the Weight.");
-    let bla3=$("#Weight").val();
-    if(!regex2.test(bla3)&&bla3.length!=0){$('#weightcheck').text(floatingPoint)}}
-    else{ $('#weightcheck').css("display","none");};
+    showNumberMessage("Weight")
 
-    if($("#Width").is(":invalid")){
-    $('#widthcheck').css("display","block");
-    $('#widthcheck').text("**Please, fill in the Width.");
-    let bla4=$("#Width").val();
-    if(!regex2.test(bla4)&&bla4.length!=0){$('#widthcheck').text(floatingPoint)}}
-    else{ $('#widthcheck').css("display","none");};
+    showNumberMessage("Width")
 
-    if($("#Length").is(":invalid")){
-    $('#lengthcheck').css("display","block");
-    $('#lengthcheck').text("**Please, fill in the Length.");
-    let bla5=$("#Length").val();
-    if(!regex2.test(bla5)&&bla5.length!=0){$('#lengthcheck').text(floatingPoint)}}
-    else{ $('#lengthcheck').css("display","none");};
+    showNumberMessage("Length")
 
-    if($("#Height").is(":invalid")){
-    $('#heightcheck').css("display","block");
-    $('#heightcheck').text("**Please, fill in the Height.");
-    let bla6=$("#Height").val();
-    if(!regex2.test(bla6)&&bla6.length!=0){$('#heightcheck').text(floatingPoint)}}
-    else{ $('#heightcheck').css("display","none");};
+    showNumberMessage("Height")
   });
   document.addEventListener('invalid', (function(){
     return function(e) {
