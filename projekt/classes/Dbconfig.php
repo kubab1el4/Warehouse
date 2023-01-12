@@ -13,7 +13,7 @@ class Dbconfig
     {
         $this -> serverName = 'localhost';
         $this -> userName = 'root';
-        $this -> passCode = '';
+        $this -> passCode = 'Goodgame1805!';
         $this -> dbName = 'productbase';
     }
     public function changeDatabase($server, $user, $pass, $db)
