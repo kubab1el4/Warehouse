@@ -1,14 +1,14 @@
 $(window).on('load', function() {
-  function htmlString(val){
-  return "<label for='"+val+"'>"+val+"(MB)</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$'id='"+val+"' required name='"+val+"'><div class='checker' id='"+val.toLowerCase()+"check' style='color: red;'></div><br>";
+  function htmlString(val,unit){
+  return "<label for='"+val+"'>"+val+"("+unit+")</label><input type='text' pattern='^[-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$'id='"+val+"' required name='"+val+"'><div class='checker' id='"+val.toLowerCase()+"check' style='color: red;'></div><br>";
   }
   const floatingPoint="**Please, enter data of the right type (Number/ Floating Point)";
   $('#productType').change(function(){
-    if($(this).val()==="DVD"){$('#form_window').html(htmlString("Size"));
+    if($(this).val()==="DVD"){$('#form_window').html(htmlString("Size", "MB"));
     $('#form_window').prop("title","Please provide the size of the DVD in MB")}
-    else if($(this).val()==="Furniture"){$('#form_window').html(htmlString("Height")+""+htmlString("Width")+""+htmlString("Length"));
+    else if($(this).val()==="Furniture"){$('#form_window').html(htmlString("Height", "CM")+""+htmlString("Width", "CM")+""+htmlString("Length", "CM"));
     $('#form_window').prop("title","Please provide dimensions in HxWxL format");}
-    else if($(this).val()==="Book"){$('#form_window').html(htmlString("Height"));
+    else if($(this).val()==="Book"){$('#form_window').html(htmlString("Weight", "KG"));
     $('#form_window').prop("title","Please provide the weight of the book in KG")}
     else {$('#form_window').text("");}
   });
